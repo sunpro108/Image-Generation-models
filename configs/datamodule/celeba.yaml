@@ -4,7 +4,7 @@ defaults:
 
 datamodule:
   _target_: src.datamodules.celeba.CelebADataModule
-  data_dir: ${data_dir}
+  data_dir: ${data_dir}/celaba
   width: 64
   height: 64
   channels: 3

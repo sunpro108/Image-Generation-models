@@ -1,8 +1,24 @@
-_target_: pytorch_lightning.Trainer
+_target_: lightning.pytorch.trainer.Trainer
 
-# set `1` to train on GPU, `0` to train on CPU only
+default_root_dir: ${paths.output_dir}
+
+min_epochs: 1 # prevents early stopping
+max_epochs: 10
+
+accelerator: cpu
 devices: 1
 
-max_epochs: 20
+# mixed precision for extra speed-up
+# precision: 16
 
-enable_model_summary: False
+# perform a validation loop every N training epochs
+check_val_every_n_epoch: 1
+
+# see logs for the training epoch
+log_every_n_steps: 10
+
+# set True to to ensure deterministic results
+# makes training slower but gives more reproducibility than just setting seeds
+deterministic: False
+
+enable_model_summary: false
