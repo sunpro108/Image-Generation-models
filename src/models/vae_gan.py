@@ -1,7 +1,6 @@
 """Autoencoding beyond pixels using a learned similarity metric"""
 import itertools
 import hydra
-import pytorch_lightning as pl
 import torchvision
 import torch
 import torch.nn.functional as F

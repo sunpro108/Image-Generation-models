@@ -1,7 +1,6 @@
 import itertools
 
 import hydra
-import pytorch_lightning as pl
 import torch
 import torch.nn.functional as F
 import torchmetrics

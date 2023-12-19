@@ -1,4 +1,4 @@
-from pytorch_lightning.callbacks import Callback
+from lightning import Callback
 import subprocess
 
 

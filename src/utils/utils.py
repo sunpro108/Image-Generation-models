@@ -3,11 +3,11 @@ import os
 import warnings
 from typing import List, Sequence
 
-import pytorch_lightning as pl
+import lightning as pl
 import rich.syntax
 import rich.tree
 from omegaconf import DictConfig, OmegaConf
-from pytorch_lightning.utilities import rank_zero_only
+from lightning_utilities.core.rank_zero import rank_prefixed_message, rank_zero_only
 
 
 def get_logger(name=__name__, level=logging.INFO) -> logging.Logger:
@@ -30,7 +30,6 @@ def get_logger(name=__name__, level=logging.INFO) -> logging.Logger:
         setattr(logger, level, rank_zero_only(getattr(logger, level)))
 
     return logger
-
 
 def extras(config: DictConfig) -> None:
     """A couple of optional utilities, controlled by main config file:
@@ -129,7 +128,7 @@ def log_hyperparameters(
     datamodule: pl.LightningDataModule,
     trainer: pl.Trainer,
     callbacks: List[pl.Callback],
-    logger: List[pl.loggers.Logger],
+    logger: List[pl.pytorch.loggers.Logger],
 ) -> None:
     """This method controls which parameters from Hydra config are saved by Lightning loggers.
 
@@ -172,7 +171,7 @@ def finish(
     datamodule: pl.LightningDataModule,
     trainer: pl.Trainer,
     callbacks: List[pl.Callback],
-    logger: List[pl.loggers.Logger],
+    logger: List[pl.pytorch.loggers.Logger],
 ) -> None:
     """Makes sure everything closed properly."""
 

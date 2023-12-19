@@ -8,6 +8,7 @@ defaults:
   - networks: null
   - logger: tensorboard # set logger here or use command line (e.g. `python run.py logger=wandb`)
   - hydra: default
+  - paths: default
   - model: tar
   - datamodule: mnist
   - experiment: tar/mnist

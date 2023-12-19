@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from pytorch_lightning import LightningModule
+from lightning import LightningModule
 from src.utils.utils import get_logger
 import torch
 import torch.nn.functional as F

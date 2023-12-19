@@ -2,14 +2,9 @@ from typing import List, Optional
 
 import hydra
 from omegaconf import DictConfig
-from pytorch_lightning import (
-    Callback,
-    LightningDataModule,
-    LightningModule,
-    Trainer,
-    seed_everything,
-)
-import GPUtil
+
+from lightning import Callback, LightningDataModule, LightningModule, Trainer, seed_everything
+# import GPUtil
 from src.utils import utils
 
 log = utils.get_logger(__name__)
@@ -41,8 +36,8 @@ def train(config: DictConfig):
     # Init lightning trainer
     log.info(f"Instantiating trainer <{config.trainer._target_}>")
     # Automatic assign free GPUs to trainer 
-    if isinstance(config.trainer.devices, int) and config.trainer.devices == 1:
-        config.trainer.devices = GPUtil.getAvailable(limit=config.trainer.devices, maxMemory=0.5, order='random')
+    # if isinstance(config.trainer.devices, int) and config.trainer.devices == 1:
+    #     config.trainer.devices = GPUtil.getAvailable(limit=config.trainer.devices, maxMemory=0.5, order='random')
     trainer: Trainer = hydra.utils.instantiate(
         config.trainer, callbacks=callbacks, logger=logger, _convert_="partial"
     )

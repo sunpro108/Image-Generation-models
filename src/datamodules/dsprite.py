@@ -1,5 +1,4 @@
 import numpy as np
-import pytorch_lightning as pl
 from pathlib import Path
 import torch
 from .base import BaseDatamodule, get_transform

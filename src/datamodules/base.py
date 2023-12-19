@@ -3,7 +3,7 @@ import torch.nn.functional as F
 from torchvision import transforms
 from PIL import Image
 from torch.utils.data import DataLoader
-import pytorch_lightning as pl
+import lightning as pl
 
 class BaseDatamodule(pl.LightningDataModule):
     def __init__(self, width, height, channels, batch_size, num_workers):

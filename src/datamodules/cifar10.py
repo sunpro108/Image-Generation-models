@@ -19,8 +19,8 @@ class CIFAR10DataModule(BaseDatamodule):
 
     def prepare_data(self):
         # download
-        CIFAR10(self.data_dir, train=True, download=True)
-        CIFAR10(self.data_dir, train=False, download=True)
+        CIFAR10(self.data_dir, train=True, download=False)
+        CIFAR10(self.data_dir, train=False, download=False)
 
     def setup(self, stage=None):
         # Assign train/val datasets for use in dataloaders

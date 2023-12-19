@@ -1,4 +1,4 @@
-import pytorch_lightning as pl
+import lightning as pl
 import torchmetrics
 from torchmetrics.image.fid import FrechetInceptionDistance
 import torch
